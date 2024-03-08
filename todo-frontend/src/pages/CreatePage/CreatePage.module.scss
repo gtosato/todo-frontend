@@ -1,0 +1,63 @@
+.errorMessage {
+    color: red;
+}
+
+.input,
+.select {
+    border: 1px solid #bdbdbd;
+    background-color: #f4f4f4;
+    padding: 0.2rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.form {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.fieldArea {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.fieldAreaContainer {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px #888888;
+}
+
+.submitButton {
+    background-color: #1f73ff;
+    width: 100px;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    padding: 0.5em 1em;
+    font-size: 14px;
+    transition: background-color .1s ease-out;
+    outline: none;
+    cursor: pointer;
+    margin: 10px;
+
+    &:hover {
+        background-color: #065ef6;
+    }
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.headerTitle {
+    padding: 20px;
+}

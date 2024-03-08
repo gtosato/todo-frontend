@@ -1,0 +1,46 @@
+.article {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px #888888;
+}
+
+.link {
+    color: black;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.fieldContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.container__left {
+    display: flex;
+    flex: .8;
+}
+
+.container__right {
+    display: flex;
+    flex: .2;
+    justify-content: flex-end;
+}
+
+.btnContainer {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #ebedf0;
+    border-radius: 5px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
