@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
-import styles from "./ToDoCard.module.scss"
+import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
+import styles from "../ToDoCard/ToDoCard.module.scss";
 
 export interface ToDoCardProps {
   id: number;
@@ -68,12 +68,13 @@ const ToDoCard: React.FC<ToDoCardProps> = ({ id, title, isComplete, createdAt, o
   };
 
   return (
-    <article className={`${styles.article} ${localIsComplete ? styles.completed : ''}`}>
+    <article className={`${styles.card} ${localIsComplete ? styles.completed : ''}`} data-testid="to-do-card">
       <div className={styles.container__left}>
         <input
           type="checkbox"
           checked={localIsComplete}
           onChange={changeHandler}
+          data-testid="checkbox" 
           id={String(id)}
         />
         {!editMode && 
@@ -84,6 +85,7 @@ const ToDoCard: React.FC<ToDoCardProps> = ({ id, title, isComplete, createdAt, o
             <input
               type="text"
               name="titleInput"
+              data-testid="title-input"
               value={titleInput}
               onChange={handleTitleInputChange}
               onBlur={handleUpdateTitle}
@@ -96,11 +98,11 @@ const ToDoCard: React.FC<ToDoCardProps> = ({ id, title, isComplete, createdAt, o
       </div>
       <div className={styles.container__right}>
         {!localIsComplete && 
-          <div className={styles.btnContainer} onClick={toggleEdit}>
+          <div className={styles.btnContainer}  onClick={toggleEdit} data-testid="pencil-button">
             <FontAwesomeIcon icon={faPencil} />
           </div>
         }
-        <div className={styles.btnContainer} id="deleteBtn" onClick={deleteTask}>
+        <div className={styles.btnContainer} id="deleteBtn" onClick={deleteTask} data-testid="delete-button">
           <FontAwesomeIcon icon={faTrash} />
         </div>
       </div>

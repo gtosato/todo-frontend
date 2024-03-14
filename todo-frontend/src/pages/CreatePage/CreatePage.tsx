@@ -5,12 +5,27 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createToDoListPost } from "../../services/to-do-list-services";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import { Flip, toast } from 'react-toastify';
 
 const CreatePage = () => {
 
     const schema = z.object({
        todoTask: z.string().min(1, "To Do Task must be at least 1 character"),
-    });    
+    }); 
+    
+    const notify = (error: Error) => {
+        toast.error(`Error accessing To Do List records: ${error.message}`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Flip,
+        });    
+    }    
 
     const {
         register,
@@ -23,13 +38,16 @@ const CreatePage = () => {
     const submitHandler: SubmitHandler<FieldValues> = async (data) => {
         try {
             const todoTaskValue = data.todoTask;
-
             await createToDoListPost(todoTaskValue);
             navigate("/");
         } catch (error) {
-            console.error("Error creating task:", error);
-        }
-    };
+            if (error instanceof Error) {
+                notify(error);
+            } else {
+                console.error("Unexpected error:", error);
+            }
+    }
+};
 
     const handleCancelClick = () => {
         navigate("/");

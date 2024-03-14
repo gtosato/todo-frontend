@@ -14,15 +14,15 @@ interface ToDoListProps {
 
 const ToDoList: React.FC<ToDoListProps> = ({ todoData, setTodoData }) => {
 
-  console.log('todoData:', todoData);
+  // console.log('todoData:', todoData);
 
   const navigate = useNavigate();
 
   const handleDelete = async (taskId: number) => {
-    console.log(`Deleting task with ID ${taskId}`);
+    // console.log(`Deleting task with ID ${taskId}`);
     try {
       await deleteToDoListPost(taskId);
-      console.log(`Task with ID ${taskId} deleted successfully.`);
+      // console.log(`Task with ID ${taskId} deleted successfully.`);
 
       setTodoData((prevData) => prevData.filter((task) => task.id !== taskId));
     } catch (error) {
@@ -33,7 +33,7 @@ const ToDoList: React.FC<ToDoListProps> = ({ todoData, setTodoData }) => {
   const handleUpdate = async (id: number, updatedData: Partial<ToDoCardProps>) => {
     try {
       await updateToDoListPost(id, updatedData);
-      console.log(`Task with ID ${id} updated successfully.`);
+      // console.log(`Task with ID ${id} updated successfully.`);
 
       setTodoData(prevData => {
         const updatedList = prevData.map(todo =>
@@ -65,7 +65,6 @@ const ToDoList: React.FC<ToDoListProps> = ({ todoData, setTodoData }) => {
                 id={todo.id}
                 title={todo.title}
                 isComplete={todo.isComplete}
-                
                 createdAt={todo.createdAt}
                 onDelete={handleDelete}
                 onUpdate={handleUpdate}
