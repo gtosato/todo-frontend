@@ -1,15 +1,25 @@
+# Task Manager (To Do List) Frontend
+
+<br />
+
+<div style='text-align: center;'>
+  <img src='./demo.png' alt='demo' />
+</div>
+
+<br />
+
 # Summary
 
-Creates a backend with Spring that can create, update, read and delete todos from a MySQL database. Along with this, a frontend application with React that interacts with this backend.
+This is a full stack application. A back-end developed in Java and Springboot that can create, update, read and delete todos from a MySQL database. Along with this, a front-end application developed in React that interacts with the back-end.
 
-## Frontend
+## Front-end
 
-- Add, complete, delete and edit todos
-- Typescript & testing with React Test Library
-- All errors handled and passed on properly back to the user through toast notifications
+-    Add, complete, delete and edit todos
+-    Typescript & testing with React Test Library
+-    All errors handled and passed on properly back to the user through toast notifications
 
-## Backend
+## Back-end
 
-- All endpoints error handled such that they return the correct status codes and messages.
-- Implements a logging strategy for requests being processed
-- Uses spring swagger to generate documentation for API
+-    All endpoints error handled such that they return the correct status codes and messages.
+-    Implements a logging strategy for requests being processed
+-    Uses spring swagger to generate documentation for API
